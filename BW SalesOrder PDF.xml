@@ -1,0 +1,297 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+	<style type="text/css">
+		* {
+			<#if .locale == "zh_CN">
+				font-family: NotoSans, NotoSansCJKsc, sans-serif;
+			<#elseif .locale == "zh_TW">
+				font-family: NotoSans, NotoSansCJKtc, sans-serif;
+			<#elseif .locale == "ja_JP">
+				font-family: NotoSans, NotoSansCJKjp, sans-serif;
+			<#elseif .locale == "ko_KR">
+				font-family: NotoSans, NotoSansCJKkr, sans-serif;
+			<#elseif .locale == "th_TH">
+				font-family: NotoSans, NotoSansThai, sans-serif;
+			<#else>
+				font-family: Helvetica,Courier New,stsong,NotoSans,sans-serif;
+			</#if>
+			
+			text-align: left;
+	      	font-size: 11px;
+	      	font-style: normal;
+		}
+		table tr th {
+   			font-weight: bold;
+   			background-color: rgb(102, 102, 102);
+   			color: #ecf0f1;
+   		}
+		
+		th {
+   			vertical-align:middle;
+   			padding: 3px;
+			height:25px;
+   		}
+   		
+   		td p {
+   			align:left 
+   		}
+  		th p{
+  		 	align:right
+   		}
+   		td g {
+   			align:right
+   		}
+   		td {
+   			padding: 2px;
+   			white-space: pre-line;
+   		}
+      	
+      	.termsHeader {
+   			corner-radius:0;
+   			border:1px solid #F0F0F0;
+   			background-color:#F0F0F0;
+   			font-weight:bold;
+   		}
+      			
+		.cellboder_right {
+   			border-right:1px solid #000;
+   		}
+   		
+   		.cellboder_rt {
+   			border-right:1px solid #F0F0F0;
+   			border-top:1px solid #F0F0F0;
+   		}
+   		
+   		.cellboder_rl {
+   			border-right:1px solid #000;
+   			border-left:1px solid #000;
+   		}
+   		
+   		.cellboder_ltr {
+   			border-right:1px solid #F0F0F0;
+   			border-left:1px solid #F0F0F0;
+   			border-top:1px solid #F0F0F0;
+   		}
+   		
+   		.cellboder_lb {
+   			border-left:1px solid #000;
+   			border-bottom:1px solid #000;
+   		}
+   		
+   		.cellboder_rb {
+   			border-right:1px solid #000;
+   			border-bottom:1px solid #000;
+   		}
+   		
+   		.cellboder_lbr {
+   			border-left:1px solid #000;
+   			border-bottom:1px solid #000;
+   			border-right:1px solid #000;
+   		}
+   		
+   		.cellboder_ltb {
+   			border-left:1px solid #F0F0F0;
+   			border-bottom:1px solid #F0F0F0;
+   			border-top:1px solid #F0F0F0;
+   		}
+   		
+   		.cellboder_ltrb {
+   			border-right:1px solid #F0F0F0;
+   			border-left:1px solid #F0F0F0;
+   			border-top:1px solid #F0F0F0;
+   			border-bottom:1px solid #F0F0F0;
+   		}
+   		
+   		
+	   	h1 {
+	   		font-size: 16px;
+	   		font-family: Helvetica,Courier New,stsong,NotoSans,sans-serif;
+	   		font-weight: bold;
+	   		padding: 0px 0px 4px;	
+	   	}
+	</style>
+	
+	<#assign params = [[params]]>
+	
+	<macrolist>
+		<macro id="nlheader">
+			<table width="100%" border="0">
+				<tr>
+					<td style= "width:15%"><h1>QUOTATION</h1></td>
+						<td style ="width:1%"></td>
+						<td style ="width:24%"></td>
+						<td style ="width:60%" align="right" rowspan ="20"><img src="${subsidiary.pagelogo?replace('&', '&amp;')}" style="width: 67px; height: 86px;"/>
+						<br/>${subsidiary.mainaddress_text}
+						</td>
+				</tr>
+				<tr></tr>
+					<tr>
+						<td>NUMBER</td>
+						<td>:</td>
+						<td align="left">${record.tranid}</td>
+						<td></td>
+						
+					</tr>
+					<tr>	
+						<td>REFERENCE</td>
+						<td>:</td>
+						<td align="left">${record.custbody_msa_sf_opportunity_number}</td>
+					</tr>				
+					<tr>
+						<td>PAYMENT TERMS</td>
+						<td>:</td>
+						<td>${record.terms}</td>
+					</tr>
+					<tr>
+						<td>DATE</td>	
+						<td>:</td>
+						<td align="left">${record.trandate}</td>
+					</tr>
+					<tr>
+						<td>DUE DATE</td>
+						<td>:</td>
+						<td align="left">${record.duedate}</td>
+						<td align="right">
+						
+						</td>
+					</tr>
+					<tr>
+						<td >SALES REP</td>
+						<td>:</td>
+						<td align="left">${record.salesrep}</td>
+					</tr>
+					<tr>
+						<td>CURRENCY</td>
+						<td>:</td>
+						<td align="left">${record.currency}</td>
+					</tr>
+					</table>
+
+					<table width="100%" border="0">
+					<tr>
+						<td style="width:75.5%"></td>
+						<td></td>
+					</tr>
+					</table>
+					<table width="100%" border="0">
+					<tr>
+						<td width="50%">TO</td>
+						
+					</tr>
+					<tr>
+						<td><h1>${record.entity.companyname}</h1></td>
+					</tr>
+					<tr>
+						<td>${record.custbody_msa_bill_to_contact}<br></br></td>
+					</tr>
+					</table>
+					
+					<table width="100%" border="0">
+					<tr>
+						<td style="width:50%">BILLING ADDRESS</td>
+						<td style="width:50%">SHIPPING ADDRESS</td>
+					</tr>
+					<tr>
+						<td>${record.billaddress}</td>
+						<td>${record.shipaddress}</td>
+					</tr>
+					</table>
+		</macro>
+		<macro id="nlfooter">
+			<table width="100%">
+				<tr>
+					<td align="center">Page <pagenumber/> of <totalpages/></td>
+				</tr>
+			</table>
+		</macro>
+	</macrolist>
+</head>
+<body size="A4" header="nlheader" header-height="35%" footer="nlfooter" footer-height="20pt">
+    <table width="100%" border="0"  cellmargin="0" style="padding-top: 10px;">
+    	<thead>
+			<tr>
+					<th align="left" colspan="6">Product</th>
+					<th align="left" colspan="7">Description</th>
+					<th align="right" colspan="5">Sales <br/>Price</th>
+					<th align="right" colspan="3">Quantity</th>
+					<th align="right" colspan="3">Term <br/>(Months)</th>
+					<th align="right" colspan="4" >Total <br/>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<#if params.record.items?has_content>
+				<#list params.record.items as item>
+					<tr>
+							<#assign cssClass>
+	               				<#if item_index != params.record.items?size-1>
+									cellboder_rl
+								<#else>
+									cellboder_lbr
+								</#if>
+	               			</#assign>
+							<td class="${cssClass}" align="left" colspan="6">${item.productName}</td>
+							<#assign cssClass>
+	               				<#if item_index != params.record.items?size-1>
+									cellboder_right
+								<#else>
+									cellboder_rb
+								</#if>
+	               			</#assign>
+						<td class="${cssClass}" align="left" colspan="7">${item.description}</td>
+							<td class="${cssClass}" align="right" colspan="5">${item.sfPrice}</td>
+							<td class="${cssClass}" align="right" colspan="3">${item.quantity?string["##0.00"]}</td>
+							<td class="${cssClass}" align="right" colspan="3"><#if item.mpGroup != 'Perpetual'>${item.duration}</#if></td>
+							<td class="${cssClass}" align="right" colspan="4">${item.totalPrice}</td>
+					</tr>
+				</#list>
+				<tr>
+					<td colspan="21" align="right">Total Price</td>
+					<td align="right" colspan="7">${record.currency.symbol} ${record.subtotal?string["##0.00"]}</td>
+					</tr>
+					
+					<tr>
+					<td colspan="21" align="right">Tax</td>
+					<td align="right" colspan="7">${record.currency.symbol} ${record.taxtotal?string["##0.00"]}</td>
+					</tr>
+					<tr>
+					<td colspan="21" align="right">Grand Total Inc. Tax</td>
+					<td align="right" colspan="7">${record.currency.symbol} ${record.total?string["##0.00"]}</td>
+				</tr>
+			</#if>
+		</tbody>
+	</table>
+	<br/>
+		<table class="endtb" width="100%">
+			<tr><td>&nbsp;</td></tr>
+		</table>
+		<br/>
+	
+	<br/>
+	<table class="termsHeader" width="100%">
+		<tr><td>Remarks</td></tr>
+	</table>
+	<p>
+		${record.custbody_msa_quote_remarks}
+	</p>
+	<br/>
+	<table class="termsHeader" width="100%">
+		<tr><td>Acceptance of Quotation</td></tr>
+	</table>
+	<p>
+		${record.custbody_msa_quote_acceptance_remarks}
+	</p>
+</body>
+</pdf>
